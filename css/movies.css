@@ -30,9 +30,9 @@ h1 {
 
 .wrapper section .item {
     padding: 0 2px;
-    margin-left: 50px;
+    margin-left: 70px;
     margin-right: 50px;
-    transition: 250ms all;
+    transition: 500ms all;
 }
 
 .wrapper section .item:hover {
@@ -50,12 +50,19 @@ h1 {
     padding: 20px;
     text-align: center;
     z-index: 1;
+    transition: 250ms all;
+    top: 100px;
 }
+.wrapper section a:hover {
+    transform: rotateY(180deg);
+}
+
 
 .wrapper section a:nth-of-type(1) {
     top:0; bottom:0; left:0;
     background: linear-gradient(-90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
 }
+
 
 .wrapper section a:nth-of-type(2) {
     top:0; bottom:0; right: 0;
