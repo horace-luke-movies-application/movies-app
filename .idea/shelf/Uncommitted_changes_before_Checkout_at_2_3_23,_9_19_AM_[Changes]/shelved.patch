@@ -1,0 +1,51 @@
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.html b/index.html
+--- a/index.html	
++++ b/index.html	
+@@ -7,6 +7,9 @@
+     <script src = ./js/jquery.js></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/movies.css">
++    <!-- Add the Tailwind CSS CDN -->
++    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
++
+ </head>
+ <body>
+ <!--                                    app name-->
+@@ -16,10 +19,17 @@
+ <!--                                    section 1 of movies-->
+     <section id="section1">
+         <a href="#section1">‹</a>
+-<!--        movie 1-->
++<!--        movie 1-->\
++        <div class="flip-item">
++        <div class="item-inner">
+         <div class="item">
+             <img src="https://m.media-amazon.com/images/I/714ZOEiVNtL._RI_.jpg" alt="Describe Image" class="image">
+-            <div class="text">Image 1</div>
++        </div>
++            <div class="flip-item-back">
++                <h2>Paris</h2>
++                <p>What an amazing city</p>
++            </div>
++        </div>
+         </div>
+ <!--        movie 2-->
+         <div class="item">
+Index: css/movies.css
+===================================================================
+diff --git a/css/movies.css b/css/movies.css
+--- a/css/movies.css	
++++ b/css/movies.css	
+@@ -132,5 +132,4 @@
+ 
+ .wrapper section .item.flipped .text {
+     transform: rotateY(0deg);
+-}
+-
++}
+\ No newline at end of file
