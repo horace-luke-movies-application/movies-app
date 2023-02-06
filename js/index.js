@@ -128,3 +128,16 @@ document.querySelector("#deleteButton").addEventListener("click", async function
 });
 
 
+//search button
+document.querySelector("#searchButton").addEventListener("click", async function(e){
+    e.preventDefault()
+    let userSearch = document.querySelector("#search").value
+    let moviesFetch = await getMovies();
+    for(let i = 0; i < moviesFetch.length; i++) {
+        if(document.querySelector("#movieSearch").value === moviesFetch[i].title ){
+            id = moviesFetch[i].id
+        }
+    }
+  await newHTML(userSearch);
+
+});
