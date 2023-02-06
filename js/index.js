@@ -7,33 +7,33 @@
 //     });
 // });
 
-const items = document.querySelectorAll('.item');
-
-items.forEach(item => {
-    item.addEventListener('click', function () {
-        this.classList.toggle('flipped');
-    });
-});
-
-(async () => {
-    const moviesContainer = document.querySelector('.movie');
-    let movies = await getMovies();
-
-    const thirdMovie = movies[2]; // get the third array from the database
-    if (thirdMovie) {
-        const card = document.createElement('div');
-        card.classList.add('card');
-        card.innerHTML =
-            `<img src="https://m.media-amazon.com/images/I/714ZOEiVNtL._RI_.jpg" alt="Describe Image" class="image">
-        <div class="movie" data-movieId=${thirdMovie.id}><p class="title">${thirdMovie.title}</p> <p>Genre:
-            ${thirdMovie.genre}</p> <p>Date of Release: ${thirdMovie.year}</p> <p>Runtime: ${thirdMovie.runtime} minutes</p>
-            <p>Director: ${thirdMovie.director}</p> <p>Cast: ${thirdMovie.actors}</p> <p>Rating: ${thirdMovie.rating}</p>
-            <button class="edit-btn">Edit</button>
-            <button class="delete-btn">Delete</button>
-        </div>`;
-        moviesContainer.appendChild(card);
-    }
-})();
+// const items = document.querySelectorAll('.item');
+//
+// items.forEach(item => {
+//     item.addEventListener('click', function () {
+//         this.classList.toggle('flipped');
+//     });
+// });
+//
+// (async () => {
+//     const moviesContainer = document.querySelector('.movie');
+//     let movies = await getMovies();
+//
+//     const thirdMovie = movies[2]; // get the third array from the database
+//     if (thirdMovie) {
+//         const card = document.createElement('div');
+//         card.classList.add('card');
+//         card.innerHTML =
+//             `<img src="https://m.media-amazon.com/images/I/714ZOEiVNtL._RI_.jpg" alt="Describe Image" class="image">
+//         <div class="movie" data-movieId=${thirdMovie.id}><p class="title">${thirdMovie.title}</p> <p>Genre:
+//             ${thirdMovie.genre}</p> <p>Date of Release: ${thirdMovie.year}</p> <p>Runtime: ${thirdMovie.runtime} minutes</p>
+//             <p>Director: ${thirdMovie.director}</p> <p>Cast: ${thirdMovie.actors}</p> <p>Rating: ${thirdMovie.rating}</p>
+//             <button class="edit-btn">Edit</button>
+//             <button class="delete-btn">Delete</button>
+//         </div>`;
+//         moviesContainer.appendChild(card);
+//     }
+// })();
 
 
 
@@ -81,7 +81,7 @@ function newHTML(movies) {
 
     for (let i = 0; i < movies.length; i++) {
         let movieHTML = `
-      <div class="movie">
+      <div class="movie text-light">
         <h2 class="title">${movies[i].title}</h2>
         <p class="year">${movies[i].year}</p>
         <p class="director">${movies[i].director}</p>
