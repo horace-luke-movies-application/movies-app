@@ -23,6 +23,7 @@ const getMovies = async () => {
     let response = await db.fetch(url, options);
     return await response.json();
 }
+console.log(getMovies())
 
 
 // And here is a function that will add a new movie:
