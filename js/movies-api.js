@@ -23,7 +23,7 @@ const getMovies = async () => {
     let response = await db.fetch(url, options);
     return await response.json();
 }
-console.log(getMovies())
+getMovies().then(data => console.log(data))
 
 // And here is a function that will add a new movie:
 const addMovie = async (movie) => {
@@ -46,3 +46,8 @@ const addMovie = async (movie) => {
 
 // Here is where you will create your own functions to further interact with the database.
 // HAPPY CODING!!!
+
+
+
+
+
