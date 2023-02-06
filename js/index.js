@@ -35,28 +35,6 @@ items.forEach(item => {
         this.classList.toggle('flipped');
     });
 });
-//
-// (async () => {
-//     const moviesContainer = document.querySelector('.movie');
-//     let movies = await getMovies();
-//     console.log(movies);
-//     console.log(await getMovies());
-//
-//     movies.forEach(movie => {
-//         const card = document.createElement('div');
-//         card.classList.add('card');
-//         card.innerHTML =
-//             `<img src="https://m.media-amazon.com/images/I/714ZOEiVNtL._RI_.jpg" alt="Describe Image" class="image">
-//                 <div class="movie" data-movieId=${movie.id}><p class="title">${movie.title}</p> <p>Genre:
-//                     ${movie.genre}</p> <p>Date of Release: ${movie.year}</p> <p>Runtime: ${movie.runtime} minutes</p>
-//                     <p>Director: ${movie.director}</p> <p>Cast: ${movie.actors}</p> <p>Rating: ${movie.rating}</p>
-//                     <button class="edit-btn">Edit</button>
-//                     <button class="delete-btn">Delete</button>
-//                 </div>`
-//                 ;
-//                 moviesContainer.appendChild(card);
-//                 });
-//                 })();
 
 (async () => {
     const moviesContainer = document.querySelector('.movie');
