@@ -56,28 +56,75 @@ document.querySelector("#addSubmit").addEventListener("click", async function(ev
 });
 
 
+// function newHTML(movies) {
+//     for (let i = 0; i < movies.length; i++) {
+//         let newDiv = document.createElement("div");
+//         newDiv.classList.add("item");
+//         newDiv.innerHTML = `
+// <!--        <img src="https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg" alt="Describe Image" class="image">-->
+//         <div class="movie">
+//             <h2 class="title">${movies[i].title}</h2>
+//             <p class="year">${movies[i].year}</p>
+//             <p class="director">${movies[i].director}</p>
+//             <p class="rating">${movies[i].rating}</p>
+//             <p class="runtime">${movies[i].runtime}</p>
+//             <p class="genre">${movies[i].genre}</p>
+//             <p class="actors">${movies[i].actors}</p>
+//         </div>
+//       `;
+//         document.body.appendChild(newDiv);
+//     }
+// }
+
 function newHTML(movies) {
+    const existingDiv = document.querySelector(".item");
+
     for (let i = 0; i < movies.length; i++) {
-        let newDiv = document.createElement("div");
-        newDiv.classList.add("item");
-        newDiv.innerHTML = `
-<!--        <img src="https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg" alt="Describe Image" class="image">-->
-        <div class="movie">
-            <h2 class="title">${movies[i].title}</h2>
-            <p class="year">${movies[i].year}</p>
-            <p class="director">${movies[i].director}</p>
-            <p class="rating">${movies[i].rating}</p>
-            <p class="runtime">${movies[i].runtime}</p>
-            <p class="genre">${movies[i].genre}</p>
-            <p class="actors">${movies[i].actors}</p>
-        </div>
-      `;
-        document.body.appendChild(newDiv);
+        let movieHTML = `
+      <div class="movie">
+        <h2 class="title">${movies[i].title}</h2>
+        <p class="year">${movies[i].year}</p>
+        <p class="director">${movies[i].director}</p>
+        <p class="rating">${movies[i].rating}</p>
+        <p class="runtime">${movies[i].runtime}</p>
+        <p class="genre">${movies[i].genre}</p>
+        <p class="actors">${movies[i].actors}</p>
+      </div>
+    `;
+
+        existingDiv.insertAdjacentHTML("beforebegin", movieHTML);
     }
 }
+
 
 getMovies().then(function(movies){
     // console.log(movies)
     newHTML(movies);
 });
+
+
+
+//delete movie
+
+// document.querySelector("#deleteButton").addEventListener("click", async function (){
+//     const movie = { id: document.getElementById('movie-search').value};
+//     console.log(movie);
+//     const deletedMovie = await deleteMovie(movie);
+//     console.log(deletedMovie);
+// });
+
+
+document.querySelector("#deleteButton").addEventListener("click", async function(e){
+    e.preventDefault()
+    let id = ""
+    let moviesFetch = await getMovies();
+    for(let i = 0; i < moviesFetch.length; i++){
+        if(document.querySelector("#movieSearch").value === moviesFetch[i].title ){
+            id = moviesFetch[i].id
+        }
+    }
+    let movie =  {id};
+    await deleteMovie(movie);
+});
+
 
