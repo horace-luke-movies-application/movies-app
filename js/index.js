@@ -15,7 +15,7 @@ document.querySelector("#addSubmit").addEventListener("click", async function(ev
         actors: document.querySelector("#actors").value
     };
     let addedMoviePromise = await addMovie(movie);
-    // let addedMovie = await addedMoviePromise.json();
+    let addedMovie = await addedMoviePromise.json();
 
     console.log(addedMovie);
 });
@@ -23,7 +23,6 @@ document.querySelector("#addSubmit").addEventListener("click", async function(ev
 
 
 //printing all movies
-
 function newHTML(movies) {
     const existingDiv = document.querySelector(".item");
 
@@ -50,7 +49,6 @@ getMovies().then(function(movies){
 
 
 //delete movie
-
 document.querySelector("#deleteButton").addEventListener("click", async function(e){
     e.preventDefault()
     let id = ""
@@ -83,77 +81,53 @@ document.querySelector("#searchButton").addEventListener("click", async function
 
 
 //load screen
+$(window).on('load', function () {
+    $('#loadingScreen').fadeIn(1000);
+    $('#contentContainer').hide();
+    setTimeout(function () {
+        $('#loadingScreen').fadeOut(3000);
+        $('#contentContainer').fadeIn(6000);
+        const wrapper = document.querySelector('.wrapper');
+        const section1 = document.createElement('section');
+        section1.id = 'section1';
+        const prevLink = document.createElement('a');
+        prevLink.href = '#section1';
+        prevLink.textContent = '‹';
+        section1.appendChild(prevLink);
 
-$(window).on('load',function() {
-    $('#loadingScreen').fadeOut(3000);
-    $('#contentContainer').fadeIn(3000);
-});
+        const images = [
+            {
+                src: "https://m.media-amazon.com/images/I/714ZOEiVNtL.RI.jpg",
+                alt: "Describe Image",
+            },
+            {
+                src: "https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg",
+                alt: "Describe Image",
+            },
+            {
+                src: "./images/godfatherpart2.jpg",
+                alt: "Describe Image",
+            }
+        ];
 
-setTimeout(function() {
-    const wrapper = document.querySelector('.wrapper');
-    const section1 = document.createElement('section');
-    section1.id = 'section1';
-
-    const prevLink = document.createElement('a');
-    prevLink.href = '#section1';
-    prevLink.textContent = '‹';
-    section1.appendChild(prevLink);
-
-    const images = [
-        {
-            src: "https://m.media-amazon.com/images/I/714ZOEiVNtL.RI.jpg",
-            alt: "Describe Image",
-        },
-        {
-            src: "https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg",
-            alt: "Describe Image",
-
-        },
-        {
-            src: "./images/godfatherpart2.jpg",
-            alt: "Describe Image",
-
-        }
-    ];
-
-    images.forEach(image => {
-        const item = document.createElement('div');
-        item.classList.add('item');
-        const button = document.createElement('button');
-        const img = document.createElement('img');
-        img.src = image.src;
-        img.alt = image.alt;
-        img.classList.add('image');
-        button.appendChild(img);
-        item.appendChild(button);
-        section1.appendChild(item);
-
-        button.addEventListener('click', function() {
-            const modal = document.createElement('div');
-            modal.classList.add('modal');
-            modal.style.display = "flex";
-            modal.style.alignItems = "center";
-            modal.style.justifyContent = "center";
-            modal.style.position = "fixed";
-            modal.style.top = "0";
-            modal.style.bottom = "0";
-            modal.style.left = "50";
-            modal.style.right = "0";
-            modal.style.backgroundColor = "white";
-            document.body.appendChild(modal);
-
-            modal.addEventListener('click', function() {
-                modal.remove();
-            });
+        images.forEach(image => {
+            const item = document.createElement('div');
+            item.classList.add('item');
+            const button = document.createElement('button');
+            const img = document.createElement('img');
+            img.src = image.src;
+            img.alt = image.alt;
+            img.classList.add('image');
+            button.appendChild(img);
+            item.appendChild(button);
+            section1.appendChild(item);
         });
-    });
 
-    const nextLink = document.createElement('a');
-    nextLink.href = '#section2';
-    nextLink.textContent = '›';
-    section1.appendChild(nextLink);
+        const nextLink = document.createElement('a');
+        nextLink.href = '#section2';
+        nextLink.textContent = '›';
+        section1.appendChild(nextLink);
 
-    wrapper.appendChild(section1);
-
-    document.getElementById("loadingScreen").style.display = "none";
-}, 3000);
+        wrapper.appendChild(section1);
+    }, 5000);
+});
