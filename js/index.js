@@ -1,39 +1,4 @@
 
-// const items = document.querySelectorAll('.item');
-//
-// items.forEach(item => {
-//     item.addEventListener('click', function() {
-//         this.classList.toggle('flipped');
-//     });
-// });
-
-// const items = document.querySelectorAll('.item');
-//
-// items.forEach(item => {
-//     item.addEventListener('click', function () {
-//         this.classList.toggle('flipped');
-//     });
-// });
-//
-// (async () => {
-//     const moviesContainer = document.querySelector('.movie');
-//     let movies = await getMovies();
-//
-//     const thirdMovie = movies[2]; // get the third array from the database
-//     if (thirdMovie) {
-//         const card = document.createElement('div');
-//         card.classList.add('card');
-//         card.innerHTML =
-//             `<img src="https://m.media-amazon.com/images/I/714ZOEiVNtL._RI_.jpg" alt="Describe Image" class="image">
-//         <div class="movie" data-movieId=${thirdMovie.id}><p class="title">${thirdMovie.title}</p> <p>Genre:
-//             ${thirdMovie.genre}</p> <p>Date of Release: ${thirdMovie.year}</p> <p>Runtime: ${thirdMovie.runtime} minutes</p>
-//             <p>Director: ${thirdMovie.director}</p> <p>Cast: ${thirdMovie.actors}</p> <p>Rating: ${thirdMovie.rating}</p>
-//             <button class="edit-btn">Edit</button>
-//             <button class="delete-btn">Delete</button>
-//         </div>`;
-//         moviesContainer.appendChild(card);
-//     }
-// })();
 
 
 
@@ -56,32 +21,15 @@ document.querySelector("#addSubmit").addEventListener("click", async function(ev
 });
 
 
-// function newHTML(movies) {
-//     for (let i = 0; i < movies.length; i++) {
-//         let newDiv = document.createElement("div");
-//         newDiv.classList.add("item");
-//         newDiv.innerHTML = `
-// <!--        <img src="https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg" alt="Describe Image" class="image">-->
-//         <div class="movie">
-//             <h2 class="title">${movies[i].title}</h2>
-//             <p class="year">${movies[i].year}</p>
-//             <p class="director">${movies[i].director}</p>
-//             <p class="rating">${movies[i].rating}</p>
-//             <p class="runtime">${movies[i].runtime}</p>
-//             <p class="genre">${movies[i].genre}</p>
-//             <p class="actors">${movies[i].actors}</p>
-//         </div>
-//       `;
-//         document.body.appendChild(newDiv);
-//     }
-// }
+
+//printing all movies
 
 function newHTML(movies) {
     const existingDiv = document.querySelector(".item");
 
     for (let i = 0; i < movies.length; i++) {
         let movieHTML = `
-      <div class="movie text-light">
+      <div class="movie text-light px-5">
         <h2 class="title">${movies[i].title}</h2>
         <p class="year">${movies[i].year}</p>
         <p class="director">${movies[i].director}</p>
@@ -91,12 +39,9 @@ function newHTML(movies) {
         <p class="actors">${movies[i].actors}</p>
       </div>
     `;
-
         existingDiv.insertAdjacentHTML("beforebegin", movieHTML);
     }
 }
-
-
 getMovies().then(function(movies){
     // console.log(movies)
     newHTML(movies);
@@ -105,14 +50,6 @@ getMovies().then(function(movies){
 
 
 //delete movie
-
-// document.querySelector("#deleteButton").addEventListener("click", async function (){
-//     const movie = { id: document.getElementById('movie-search').value};
-//     console.log(movie);
-//     const deletedMovie = await deleteMovie(movie);
-//     console.log(deletedMovie);
-// });
-
 
 document.querySelector("#deleteButton").addEventListener("click", async function(e){
     e.preventDefault()
@@ -143,3 +80,80 @@ document.querySelector("#searchButton").addEventListener("click", async function
 
     newHTML(searchedMovie);
 });
+
+
+//load screen
+
+$(window).on('load',function() {
+    $('#loadingScreen').fadeOut(3000);
+    $('#contentContainer').fadeIn(3000);
+});
+
+setTimeout(function() {
+    const wrapper = document.querySelector('.wrapper');
+    const section1 = document.createElement('section');
+    section1.id = 'section1';
+
+    const prevLink = document.createElement('a');
+    prevLink.href = '#section1';
+    prevLink.textContent = '‹';
+    section1.appendChild(prevLink);
+
+    const images = [
+        {
+            src: "https://m.media-amazon.com/images/I/714ZOEiVNtL.RI.jpg",
+            alt: "Describe Image",
+        },
+        {
+            src: "https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg",
+            alt: "Describe Image",
+
+        },
+        {
+            src: "./images/godfatherpart2.jpg",
+            alt: "Describe Image",
+
+        }
+    ];
+
+    images.forEach(image => {
+        const item = document.createElement('div');
+        item.classList.add('item');
+        const button = document.createElement('button');
+        const img = document.createElement('img');
+        img.src = image.src;
+        img.alt = image.alt;
+        img.classList.add('image');
+        button.appendChild(img);
+        item.appendChild(button);
+        section1.appendChild(item);
+
+        button.addEventListener('click', function() {
+            const modal = document.createElement('div');
+            modal.classList.add('modal');
+            modal.style.display = "flex";
+            modal.style.alignItems = "center";
+            modal.style.justifyContent = "center";
+            modal.style.position = "fixed";
+            modal.style.top = "0";
+            modal.style.bottom = "0";
+            modal.style.left = "50";
+            modal.style.right = "0";
+            modal.style.backgroundColor = "white";
+            document.body.appendChild(modal);
+
+            modal.addEventListener('click', function() {
+                modal.remove();
+            });
+        });
+    });
+
+    const nextLink = document.createElement('a');
+    nextLink.href = '#section2';
+    nextLink.textContent = '›';
+    section1.appendChild(nextLink);
+
+    wrapper.appendChild(section1);
+
+    document.getElementById("loadingScreen").style.display = "none";
+}, 3000);
