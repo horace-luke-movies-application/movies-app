@@ -1,6 +1,4 @@
 
-let movies = [];
-
 //printing all movies
 function newHTML(movies) {
     const existingDiv = document.querySelector(".item");
@@ -44,8 +42,8 @@ document.querySelector("#addSubmit").addEventListener("click", async function(ev
     const addedMovie = await addMovie(movie);
     console.log(addedMovie);
 
-    // Add the movie to the movies array
-    movies.push(addedMovie);
+    // Get the updated movies list after adding the movie
+    const movies = await getMovies();
 
     // Clear the existing movie cards
     const existingDiv = document.querySelector(".item");
@@ -54,7 +52,6 @@ document.querySelector("#addSubmit").addEventListener("click", async function(ev
     // Render the updated movies
     newHTML(movies);
 });
-
 
 //delete movie
 document.querySelector("#deleteButton").addEventListener("click", async function(e){
