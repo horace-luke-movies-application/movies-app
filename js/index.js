@@ -28,23 +28,26 @@ function newHTML(movies) {
 
     for (let i = 0; i < movies.length; i++) {
         let movieHTML = `
-      <div class="movie text-light px-5">
-        <h2 class="title">${movies[i].title}</h2>
-        <p class="year">${movies[i].year}</p>
-        <p class="director">${movies[i].director}</p>
-        <p class="rating">${movies[i].rating}</p>
-        <p class="runtime">${movies[i].runtime}</p>
-        <p class="genre">${movies[i].genre}</p>
-        <p class="actors">${movies[i].actors}</p>
-      </div>
-    `;
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">${movies[i].title}</h5>
+                <p class="card-text">Year: ${movies[i].year}</p>
+                <p class="card-text">Director: ${movies[i].director}</p>
+                <p class="card-text">Rating: ${movies[i].rating}</p>
+                <p class="card-text">Runtime: ${movies[i].runtime}</p>
+                <p class="card-text">Genre: ${movies[i].genre}</p>
+                <p class="card-text">Actors: ${movies[i].actors}</p>
+            </div>
+        </div>
+        `;
         existingDiv.insertAdjacentHTML("beforebegin", movieHTML);
     }
 }
+
 getMovies().then(function(movies){
-    // console.log(movies)
     newHTML(movies);
 });
+
 
 
 
@@ -81,53 +84,53 @@ document.querySelector("#searchButton").addEventListener("click", async function
 
 
 //load screen
-$(window).on('load', function () {
-    $('#loadingScreen').fadeIn(1000);
-    $('#contentContainer').hide();
-    setTimeout(function () {
-        $('#loadingScreen').fadeOut(3000);
-        $('#contentContainer').fadeIn(6000);
-        const wrapper = document.querySelector('.wrapper');
-        const section1 = document.createElement('section');
-        section1.id = 'section1';
-        const prevLink = document.createElement('a');
-        prevLink.href = '#section1';
-        prevLink.textContent = '‹';
-        section1.appendChild(prevLink);
-
-        const images = [
-            {
-                src: "https://m.media-amazon.com/images/I/714ZOEiVNtL.RI.jpg",
-                alt: "Describe Image",
-            },
-            {
-                src: "https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg",
-                alt: "Describe Image",
-            },
-            {
-                src: "./images/godfatherpart2.jpg",
-                alt: "Describe Image",
-            }
-        ];
-
-        images.forEach(image => {
-            const item = document.createElement('div');
-            item.classList.add('item');
-            const button = document.createElement('button');
-            const img = document.createElement('img');
-            img.src = image.src;
-            img.alt = image.alt;
-            img.classList.add('image');
-            button.appendChild(img);
-            item.appendChild(button);
-            section1.appendChild(item);
-        });
-
-        const nextLink = document.createElement('a');
-        nextLink.href = '#section2';
-        nextLink.textContent = '›';
-        section1.appendChild(nextLink);
-
-        wrapper.appendChild(section1);
-    }, 5000);
-});
+// $(window).on('load', function () {
+//     $('#loadingScreen').fadeIn(1000);
+//     $('#contentContainer').hide();
+//     setTimeout(function () {
+//         $('#loadingScreen').fadeOut(1000);
+//         $('#contentContainer').fadeIn(1000);
+//         const wrapper = document.querySelector('.wrapper');
+//         const section1 = document.createElement('section');
+//         section1.id = 'section1';
+//         const prevLink = document.createElement('a');
+//         prevLink.href = '#section1';
+//         prevLink.textContent = '‹';
+//         section1.appendChild(prevLink);
+//
+//         const images = [
+//             {
+//                 src: "https://m.media-amazon.com/images/I/714ZOEiVNtL.RI.jpg",
+//                 alt: "Describe Image",
+//             },
+//             {
+//                 src: "https://flxt.tmsimg.com/assets/p15987_p_v8_ai.jpg",
+//                 alt: "Describe Image",
+//             },
+//             {
+//                 src: "./images/godfatherpart2.jpg",
+//                 alt: "Describe Image",
+//             }
+//         ];
+//
+//         images.forEach(image => {
+//             const item = document.createElement('div');
+//             item.classList.add('item');
+//             const button = document.createElement('button');
+//             const img = document.createElement('img');
+//             img.src = image.src;
+//             img.alt = image.alt;
+//             img.classList.add('image');
+//             button.appendChild(img);
+//             item.appendChild(button);
+//             section1.appendChild(item);
+//         });
+//
+//         const nextLink = document.createElement('a');
+//         nextLink.href = '#section2';
+//         nextLink.textContent = '›';
+//         section1.appendChild(nextLink);
+//
+//         wrapper.appendChild(section1);
+//     }, 2000);
+// });
