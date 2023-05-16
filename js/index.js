@@ -1,26 +1,5 @@
 
-
-
-
-//add movie w listeners
-document.querySelector("#addSubmit").addEventListener("click", async function(event) {
-    event.preventDefault();
-    const movie = {
-        title: document.querySelector("#title").value,
-        year: document.querySelector("#year").value,
-        director: document.querySelector("#director").value,
-        rating: document.querySelector("#rating").value,
-        runtime: document.querySelector("#runtime").value,
-        genre: document.querySelector("#genre").value,
-        actors: document.querySelector("#actors").value
-    };
-    let addedMoviePromise = await addMovie(movie);
-    let addedMovie = await addedMoviePromise.json();
-
-    console.log(addedMovie);
-});
-
-
+let movies = [];
 
 //printing all movies
 function newHTML(movies) {
@@ -48,22 +27,66 @@ getMovies().then(function(movies){
     newHTML(movies);
 });
 
+//add movie w listeners
+document.querySelector("#addSubmit").addEventListener("click", async function(event) {
+    event.preventDefault();
+    const movie = {
+        title: document.querySelector("#title").value,
+        year: document.querySelector("#year").value,
+        director: document.querySelector("#director").value,
+        rating: document.querySelector("#rating").value,
+        runtime: document.querySelector("#runtime").value,
+        genre: document.querySelector("#genre").value,
+        actors: document.querySelector("#actors").value
+    };
 
+    // Add the movie to the database
+    const addedMovie = await addMovie(movie);
+    console.log(addedMovie);
+
+    // Add the movie to the movies array
+    movies.push(addedMovie);
+
+    // Clear the existing movie cards
+    const existingDiv = document.querySelector(".item");
+    existingDiv.innerHTML = "";
+
+    // Render the updated movies
+    newHTML(movies);
+});
 
 
 //delete movie
 document.querySelector("#deleteButton").addEventListener("click", async function(e){
-    e.preventDefault()
-    let id = ""
-    let moviesFetch = await getMovies();
-    for(let i = 0; i < moviesFetch.length; i++){
-        if(document.querySelector("#movieSearch").value === moviesFetch[i].title ){
-            id = moviesFetch[i].id
-        }
+    e.preventDefault();
+    const movieTitle = document.querySelector("#movieSearch").value;
+
+    // Get movies from the database
+    const movies = await getMovies();
+
+    // Find the movie by title
+    const movieToDelete = movies.find(movie => movie.title === movieTitle);
+
+    if (movieToDelete) {
+        // Delete the movie from the database
+        await deleteMovie(movieToDelete);
+        alert("Movie deleted successfully!");
+
+        // Remove the movie from the movies array
+        const updatedMovies = movies.filter(movie => movie.id !== movieToDelete.id);
+
+        // Clear the existing movie cards
+        const existingDiv = document.querySelector(".item");
+        existingDiv.innerHTML = "";
+
+        // Render the updated movies
+        newHTML(updatedMovies);
+    } else {
+        alert("Movie not found!");
     }
-    let movie =  {id};
-    await deleteMovie(movie);
 });
+
+
 
 
 //search button

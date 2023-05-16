@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c984b266-234c-4220-924e-5847f464238a" name="Changes" comment="search functionality">
+    <list default="true" id="c984b266-234c-4220-924e-5847f464238a" name="Changes" comment="added to cards">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,6 +73,7 @@
       <workItem from="1675881457900" duration="638000" />
       <workItem from="1678379176301" duration="148000" />
       <workItem from="1680796891311" duration="25000" />
+      <workItem from="1684254496852" duration="1740000" />
     </task>
     <task id="LOCAL-00001" summary="inital files">
       <created>1675366790099</created>
@@ -152,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675724287730</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added to cards">
+      <created>1684254820535</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1684254820535</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +179,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="inital files" />
     <MESSAGE value="search functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="search functionality" />
+    <MESSAGE value="added to cards" />
+    <option name="LAST_COMMIT_MESSAGE" value="added to cards" />
   </component>
 </project>
