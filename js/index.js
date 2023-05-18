@@ -5,23 +5,30 @@ function newHTML(movies) {
     // Clear the existing movie cards
     existingDiv.innerHTML = "";
 
+    let movieHTML = `<div class="row">`;
+
     for (let i = 0; i < movies.length; i++) {
-        let movieHTML = `
-        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">${movies[i].title}</h5>
-                <p class="card-text">Year: ${movies[i].year}</p>
-                <p class="card-text">Director: ${movies[i].director}</p>
-                <p class="card-text">Rating: ${movies[i].rating}</p>
-                <p class="card-text">Runtime: ${movies[i].runtime}</p>
-                <p class="card-text">Genre: ${movies[i].genre}</p>
-                <p class="card-text">Actors: ${movies[i].actors}</p>
+        movieHTML += `
+        <div class="col-md-4">
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">${movies[i].title}</h5>
+                    <p class="card-text">Year: ${movies[i].year}</p>
+                    <p class="card-text">Director: ${movies[i].director}</p>
+                    <p class="card-text">Rating: ${movies[i].rating}</p>
+                    <p class="card-text">Runtime: ${movies[i].runtime}</p>
+                    <p class="card-text">Genre: ${movies[i].genre}</p>
+                    <p class="card-text">Actors: ${movies[i].actors}</p>
+                </div>
             </div>
         </div>
         `;
-        existingDiv.insertAdjacentHTML("beforeend", movieHTML);
     }
+
+    movieHTML += `</div>`;
+    existingDiv.insertAdjacentHTML("beforeend", movieHTML);
 }
+
 
 getMovies().then(function(movies){
     newHTML(movies);
