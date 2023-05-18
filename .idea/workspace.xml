@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c984b266-234c-4220-924e-5847f464238a" name="Changes" comment="css causing issues">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    <list default="true" id="c984b266-234c-4220-924e-5847f464238a" name="Changes" comment="changed card and nav color">
       <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +73,7 @@
       <workItem from="1678379176301" duration="148000" />
       <workItem from="1680796891311" duration="25000" />
       <workItem from="1684254496852" duration="3724000" />
-      <workItem from="1684423480548" duration="848000" />
+      <workItem from="1684423480548" duration="1108000" />
     </task>
     <task id="LOCAL-00001" summary="inital files">
       <created>1675366790099</created>
@@ -182,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684423864691</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="changed card and nav color">
+      <created>1684424605856</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1684424605856</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +211,7 @@
     <MESSAGE value="REVERTED to some old things" />
     <MESSAGE value="its stuck" />
     <MESSAGE value="css causing issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="css causing issues" />
+    <MESSAGE value="changed card and nav color" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed card and nav color" />
   </component>
 </project>

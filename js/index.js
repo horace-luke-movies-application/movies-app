@@ -5,7 +5,7 @@ function newHTML(movies) {
     // Clear the existing movie cards
     existingDiv.innerHTML = "";
 
-    let movieHTML = `<div class="row">`;
+    let movieHTML = `<div class="row p-3">`;
 
     for (let i = 0; i < movies.length; i++) {
         movieHTML += `
