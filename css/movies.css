@@ -1,313 +1,313 @@
-html {
-    scroll-behavior: smooth;
-}
+/*html {*/
+/*    scroll-behavior: smooth;*/
+/*}*/
 
-body {
-    margin: 0;
-    background-color: #000;
-}
-
-
-h1 {
-    font-family: Arial;
-    color: red;
-    text-align: center;
-}
+/*body {*/
+/*    margin: 0;*/
+/*    background-color: #000;*/
+/*}*/
 
 
-/*design for carousel wrapper*/
-.wrapper {
-    display: grid;
-    grid-template-columns: repeat(3,100%);
-    overflow:hidden;
-    scroll-behavior: smooth;
-}
+/*h1 {*/
+/*    font-family: Arial;*/
+/*    color: red;*/
+/*    text-align: center;*/
+/*}*/
 
 
-/*edits movie section in carousel*/
-.wrapper section {
-    width: 100%;
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    margin: 20px 0;
-}
+/*!*design for carousel wrapper*!*/
+/*.wrapper {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(3,100%);*/
+/*    overflow:hidden;*/
+/*    scroll-behavior: smooth;*/
+/*}*/
 
 
-/*edits each image in carousel*/
-.wrapper section .item {
-    padding: 0 2px;
-    margin-left: 70px;
-    margin-right: 50px;
-    transition: 500ms all;
-}
+/*!*edits movie section in carousel*!*/
+/*.wrapper section {*/
+/*    width: 100%;*/
+/*    position: relative;*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(5, auto);*/
+/*    margin: 20px 0;*/
+/*}*/
 
 
-/*hover for image*/
-.wrapper section .item:hover {
-    margin: 0 40px;
-    transform: scale(1.2);
-}
+/*!*edits each image in carousel*!*/
+/*.wrapper section .item {*/
+/*    padding: 0 2px;*/
+/*    margin-left: 70px;*/
+/*    margin-right: 50px;*/
+/*    transition: 500ms all;*/
+/*}*/
 
 
-/*move section arrow button*/
-.wrapper section a {
-    position: absolute;
-    color: #fff;
-    text-decoration: none;
-    font-size: 6em;
-    background:rgb(0,0,0);
-    width: 80px;
-    padding: 20px;
-    text-align: center;
-    z-index: 1;
-    transition: 500ms all;
-    top: 100px;
-}
+/*!*hover for image*!*/
+/*.wrapper section .item:hover {*/
+/*    margin: 0 40px;*/
+/*    transform: scale(1.2);*/
+/*}*/
 
 
-/*arrow button hover flip*/
-.wrapper section a:hover {
-    transform: rotateY(180deg);
-}
-
-/*arrow button shape*/
-.wrapper section a:nth-of-type(1) {
-    top:0; bottom:0; left:0;
-    background: linear-gradient(-90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-}
-
-
-.wrapper section a:nth-of-type(2) {
-    top:0; bottom:0; right: 0;
-    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-}
+/*!*move section arrow button*!*/
+/*.wrapper section a {*/
+/*    position: absolute;*/
+/*    color: #fff;*/
+/*    text-decoration: none;*/
+/*    font-size: 6em;*/
+/*    background:rgb(0,0,0);*/
+/*    width: 80px;*/
+/*    padding: 20px;*/
+/*    text-align: center;*/
+/*    z-index: 1;*/
+/*    transition: 500ms all;*/
+/*    top: 100px;*/
+/*}*/
 
 
-img {
-    width: 200px;
-    height: 250px;
-    object-fit: scale-down;
-}
+/*!*arrow button hover flip*!*/
+/*.wrapper section a:hover {*/
+/*    transform: rotateY(180deg);*/
+/*}*/
 
-/*back of image text edit*/
-.wrapper section .item {
-
-    width: 200px;
-    height: 200px;
-    perspective: 1000px;
-    cursor: pointer;
-}
+/*!*arrow button shape*!*/
+/*.wrapper section a:nth-of-type(1) {*/
+/*    top:0; bottom:0; left:0;*/
+/*    background: linear-gradient(-90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);*/
+/*}*/
 
 
-.wrapper section .item .image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    transform: rotateY(0deg);
-    transition: transform 0.8s ease-in-out;
-}
+/*.wrapper section a:nth-of-type(2) {*/
+/*    top:0; bottom:0; right: 0;*/
+/*    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);*/
+/*}*/
 
-.wrapper section .item .movie {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform: rotateY(180deg);
-    background-color: rgba(0,0,0,0.5);
-    color: #fff;
-    font-size: 20px;
-    transition: transform 0.8s ease-in-out;
-    display: none;
-}
 
-.wrapper section .item.flipped .image {
-    transform: rotateY(180deg);
-}
+/*img {*/
+/*    width: 200px;*/
+/*    height: 250px;*/
+/*    object-fit: scale-down;*/
+/*}*/
 
-.wrapper section .item.flipped .movie {
-    background-color: white;
-    color: black;
-    transform: rotateY(0deg);
-    display: flex;
-    flex-direction: column;
-    font-size: 4px;
-}
+/*!*back of image text edit*!*/
+/*.wrapper section .item {*/
 
-p {
-    margin-bottom: 1px;
-}
+/*    width: 200px;*/
+/*    height: 200px;*/
+/*    perspective: 1000px;*/
+/*    cursor: pointer;*/
+/*}*/
 
-* Center the svg and set the background to white */
-#loadingScreen {
-    transition: opacity 5000ms ease-in-out;
-    display: grid;
-    place-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: #ffffff;
-    font-family: "Montserrat", sans-serif;
-    z-index: 9999;
 
-}
+/*.wrapper section .item .image {*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    backface-visibility: hidden;*/
+/*    transform: rotateY(0deg);*/
+/*    transition: transform 0.8s ease-in-out;*/
+/*}*/
 
-/* Make the svg a white circle and give it the default spinning animation */
-svg {
-    background-color: #ffffff;
-    border-radius: 50%;
-    animation: spin 3s ease infinite alternate;
-}
+/*.wrapper section .item .movie {*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    backface-visibility: hidden;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    transform: rotateY(180deg);*/
+/*    background-color: rgba(0,0,0,0.5);*/
+/*    color: #fff;*/
+/*    font-size: 20px;*/
+/*    transition: transform 0.8s ease-in-out;*/
+/*    display: none;*/
+/*}*/
 
-/*Give each dot a radius of 20*/
-.shape {
-    r: 20;
-}
+/*.wrapper section .item.flipped .image {*/
+/*    transform: rotateY(180deg);*/
+/*}*/
 
-/*Give each dot its positioning and set the default animation and color for each */
-.shape:nth-child(1) {
-    cy: 50;
-    cx: 50;
-    fill: #c20f00;
-    animation: movein 3s ease infinite alternate;
-}
-.shape:nth-child(2) {
-    cy: 50;
-    cx: 150;
-    fill: #ffdd22;
-    animation: movein 3s ease infinite alternate;
-}
-.shape:nth-child(3) {
-    cy: 150;
-    cx: 50;
-    fill: #2374c6;
-    animation: movein 3s ease infinite alternate;
-}
-.shape:nth-child(4) {
-    cy: 150;
-    cx: 150;
-    fill: #000000;
-    animation: movein 3s ease infinite alternate;
-}
+/*.wrapper section .item.flipped .movie {*/
+/*    background-color: white;*/
+/*    color: black;*/
+/*    transform: rotateY(0deg);*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    font-size: 4px;*/
+/*}*/
 
-/* Put the two interface options at the bottom of the screen */
-.control-panel {
-    position: fixed;
-    bottom: 5px;
-    display: flex;
-    align-items: center;
-}
+/*p {*/
+/*    margin-bottom: 1px;*/
+/*}*/
 
-/* Set color and placement of labels */
-.switch-label {
-    display: inline-block;
-    color: #000000;
-    margin: 5px;
-}
+/** Center the svg and set the background to white *!*/
+/*#loadingScreen {*/
+/*    transition: opacity 5000ms ease-in-out;*/
+/*    display: grid;*/
+/*    place-content: center;*/
+/*    align-items: center;*/
+/*    height: 100vh;*/
+/*    width: 100vw;*/
+/*    background-color: #ffffff;*/
+/*    font-family: "Montserrat", sans-serif;*/
+/*    z-index: 9999;*/
 
-/* Set area of switches */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 25px;
-}
+/*}*/
 
-/* Get rid of checkbox defaults */
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
+/*!* Make the svg a white circle and give it the default spinning animation *!*/
+/*svg {*/
+/*    background-color: #ffffff;*/
+/*    border-radius: 50%;*/
+/*    animation: spin 3s ease infinite alternate;*/
+/*}*/
 
-/* Create the slider */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ffdd22;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-}
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 19px;
-    width: 19px;
-    left: 3px;
-    bottom: 3px;
-    background-color: #000000;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-}
+/*!*Give each dot a radius of 20*!*/
+/*.shape {*/
+/*    r: 20;*/
+/*}*/
 
-/* Change color on checked */
-input:checked + .slider {
-    background-color: #c20f00;
-}
+/*!*Give each dot its positioning and set the default animation and color for each *!*/
+/*.shape:nth-child(1) {*/
+/*    cy: 50;*/
+/*    cx: 50;*/
+/*    fill: #c20f00;*/
+/*    animation: movein 3s ease infinite alternate;*/
+/*}*/
+/*.shape:nth-child(2) {*/
+/*    cy: 50;*/
+/*    cx: 150;*/
+/*    fill: #ffdd22;*/
+/*    animation: movein 3s ease infinite alternate;*/
+/*}*/
+/*.shape:nth-child(3) {*/
+/*    cy: 150;*/
+/*    cx: 50;*/
+/*    fill: #2374c6;*/
+/*    animation: movein 3s ease infinite alternate;*/
+/*}*/
+/*.shape:nth-child(4) {*/
+/*    cy: 150;*/
+/*    cx: 150;*/
+/*    fill: #000000;*/
+/*    animation: movein 3s ease infinite alternate;*/
+/*}*/
 
-/* Set second color change */
-.movement input:checked + .slider {
-    background-color: #2374c6;
-}
+/*!* Put the two interface options at the bottom of the screen *!*/
+/*.control-panel {*/
+/*    position: fixed;*/
+/*    bottom: 5px;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
 
-/* Set the focus to same color as when checked*/
-input:focus + .slider {
-    box-shadow: 0 0 3px #c20f00;
-}
-.movement input:focus + .slider {
-    box-shadow: 0 0 3px #2374c6;
-}
+/*!* Set color and placement of labels *!*/
+/*.switch-label {*/
+/*    display: inline-block;*/
+/*    color: #000000;*/
+/*    margin: 5px;*/
+/*}*/
 
-/* Actually move the slider when checked*/
-input:checked + .slider:before {
-    -webkit-transform: translateX(25px);
-    -ms-transform: translateX(25px);
-    transform: translateX(25px);
-}
+/*!* Set area of switches *!*/
+/*.switch {*/
+/*    position: relative;*/
+/*    display: inline-block;*/
+/*    width: 50px;*/
+/*    height: 25px;*/
+/*}*/
 
-/* Round the sliders */
-.slider.round {
-    border-radius: 34px;
-}
-.slider.round:before {
-    border-radius: 50%;
-}
+/*!* Get rid of checkbox defaults *!*/
+/*.switch input {*/
+/*    opacity: 0;*/
+/*    width: 0;*/
+/*    height: 0;*/
+/*}*/
 
-/*Spin the svg so all the dots spin*/
-@keyframes spin {
-    to {
-        transform: rotate(1turn);
-    }
-}
+/*!* Create the slider *!*/
+/*.slider {*/
+/*    position: absolute;*/
+/*    cursor: pointer;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    background-color: #ffdd22;*/
+/*    -webkit-transition: 0.4s;*/
+/*    transition: 0.4s;*/
+/*}*/
+/*.slider:before {*/
+/*    position: absolute;*/
+/*    content: "";*/
+/*    height: 19px;*/
+/*    width: 19px;*/
+/*    left: 3px;*/
+/*    bottom: 3px;*/
+/*    background-color: #000000;*/
+/*    -webkit-transition: 0.4s;*/
+/*    transition: 0.4s;*/
+/*}*/
 
-/* Move all the dots toward the center */
-@keyframes movein {
-    to {
-        cy: 100;
-        cx: 100;
-    }
-}
+/*!* Change color on checked *!*/
+/*input:checked + .slider {*/
+/*    background-color: #c20f00;*/
+/*}*/
 
-/* Set a bouncy ball type movement for the dots */
-@keyframes moveup {
-    to {
-        cy: 20;
-    }
-}
-.item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.descriptionBox {
-    height: 250px;
-}
+/*!* Set second color change *!*/
+/*.movement input:checked + .slider {*/
+/*    background-color: #2374c6;*/
+/*}*/
+
+/*!* Set the focus to same color as when checked*!*/
+/*input:focus + .slider {*/
+/*    box-shadow: 0 0 3px #c20f00;*/
+/*}*/
+/*.movement input:focus + .slider {*/
+/*    box-shadow: 0 0 3px #2374c6;*/
+/*}*/
+
+/*!* Actually move the slider when checked*!*/
+/*input:checked + .slider:before {*/
+/*    -webkit-transform: translateX(25px);*/
+/*    -ms-transform: translateX(25px);*/
+/*    transform: translateX(25px);*/
+/*}*/
+
+/*!* Round the sliders *!*/
+/*.slider.round {*/
+/*    border-radius: 34px;*/
+/*}*/
+/*.slider.round:before {*/
+/*    border-radius: 50%;*/
+/*}*/
+
+/*!*Spin the svg so all the dots spin*!*/
+/*@keyframes spin {*/
+/*    to {*/
+/*        transform: rotate(1turn);*/
+/*    }*/
+/*}*/
+
+/*!* Move all the dots toward the center *!*/
+/*@keyframes movein {*/
+/*    to {*/
+/*        cy: 100;*/
+/*        cx: 100;*/
+/*    }*/
+/*}*/
+
+/*!* Set a bouncy ball type movement for the dots *!*/
+/*@keyframes moveup {*/
+/*    to {*/
+/*        cy: 20;*/
+/*    }*/
+/*}*/
+/*.item {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*}*/
+/*.descriptionBox {*/
+/*    height: 250px;*/
+/*}*/

@@ -1,7 +1,9 @@
-
 //printing all movies
 function newHTML(movies) {
     const existingDiv = document.querySelector(".item");
+
+    // Clear the existing movie cards
+    existingDiv.innerHTML = "";
 
     for (let i = 0; i < movies.length; i++) {
         let movieHTML = `
@@ -17,7 +19,7 @@ function newHTML(movies) {
             </div>
         </div>
         `;
-        existingDiv.insertAdjacentHTML("beforebegin", movieHTML);
+        existingDiv.insertAdjacentHTML("beforeend", movieHTML);
     }
 }
 
@@ -37,10 +39,11 @@ document.querySelector("#addSubmit").addEventListener("click", async function(ev
         genre: document.querySelector("#genre").value,
         actors: document.querySelector("#actors").value
     };
+    console.log(movie);
 
     // Add the movie to the database
     const addedMovie = await addMovie(movie);
-    console.log(addedMovie);
+    console.log(addedMovie); // This is the movie with the id
 
     // Get the updated movies list after adding the movie
     const movies = await getMovies();
@@ -99,6 +102,11 @@ document.querySelector("#searchButton").addEventListener("click", async function
         }
     }
 
+    // Clear the existing movie cards
+    const existingDiv = document.querySelector(".item");
+    existingDiv.innerHTML = "";
+
+    // Render the searched movies
     newHTML(searchedMovie);
 });
 
