@@ -90,15 +90,15 @@ document.querySelector("#deleteButton").addEventListener("click", async function
 
 
 //search button
-document.querySelector("#searchButton").addEventListener("click", async function(e){
+document.querySelector("#search").addEventListener("input", async function(e) {
     e.preventDefault();
-    let userSearch = document.querySelector("#search").value;
+    let userSearch = e.target.value;
     let moviesFetch = await getMovies();
-    let searchedMovie = [];
+    let searchedMovies = [];
 
-    for(let i = 0; i < moviesFetch.length; i++) {
-        if(userSearch === moviesFetch[i].title) {
-            searchedMovie.push(moviesFetch[i]);
+    for (let i = 0; i < moviesFetch.length; i++) {
+        if (moviesFetch[i].title.includes(userSearch)) {
+            searchedMovies.push(moviesFetch[i]);
         }
     }
 
@@ -107,7 +107,8 @@ document.querySelector("#searchButton").addEventListener("click", async function
     existingDiv.innerHTML = "";
 
     // Render the searched movies
-    newHTML(searchedMovie);
+    newHTML(searchedMovies);
 });
+
 
 
